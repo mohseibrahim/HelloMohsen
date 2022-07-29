@@ -47,4 +47,4 @@ workflows:
       - print_world :
          requires: 
           - print_hello
-      - echo_env-var
+      - echo_env_var
