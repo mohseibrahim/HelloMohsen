@@ -36,6 +36,34 @@ jobs:
      name : echo_env_var
      command :
        echo $Mohsen_ENV_VAR
+
+ save_hello_world_output:
+  docker:
+   - image : circleci/node:13.8.0
+  steps:
+  - checkout 
+  - run :
+     name : save_hello_world_output
+     command :
+       echo "hello world mohsen" > output.txt
+  - persist_to_workspace:
+      root: /tmp/workspace
+      paths:
+        - output.txt    
+
+
+ print_output_file:
+  docker:
+   - image : circleci/node:13.8.0
+  steps:
+  - checkout
+  - attache_workspace:
+      at: /tmp/workspace
+    
+  - run :
+     name : print_output_file
+     command :
+       cat output.txt
               
 # Orchestrate or schedule a set of jobs
 workflows:
@@ -48,3 +76,7 @@ workflows:
          requires: 
           - print_hello
       - echo_env_var
+      - save_hello_world_output
+      - print_output_file :
+         requires:
+          - save_hello_world_output
