@@ -47,7 +47,7 @@ jobs:
      command :
        echo "hello world mohsen" > output.txt
   - persist_to_workspace:
-      root: /tmp/workspace
+      root: .
       paths:
         - output.txt    
 
@@ -58,7 +58,7 @@ jobs:
   steps:
   - checkout
   - attach_workspace:
-      at: /tmp/workspace
+      at: .
     
   - run :
      name : print_output_file
