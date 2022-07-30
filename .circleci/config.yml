@@ -57,7 +57,7 @@ jobs:
    - image : circleci/node:13.8.0
   steps:
   - checkout
-  - attache_workspace:
+  - attach_workspace:
       at: /tmp/workspace
     
   - run :
