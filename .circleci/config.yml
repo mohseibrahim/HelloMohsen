@@ -5,11 +5,11 @@ commands:
   print_pipeline_id:
     description: "to print workflow id"
     parameters:
-     toto:
-        type: string
-        default: hamada
+      toto:
+          type: string
+          default: "hamada"
     steps:
-     - run: echo <<parameters.toto>>
+      - run: echo << parameters.toto >>
 
 
 orbs:
