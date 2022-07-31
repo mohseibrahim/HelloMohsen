@@ -76,10 +76,10 @@ jobs:
      command :
        cat output.txt
 
-  demo_command:
-   docker:
-    image: circleci/node:13.8.0
-   steps:
+ demo_command:
+  docker:
+   - image: circleci/node:13.8.0
+  steps:
     - checkout 
     - print_pipeline_id:
               
