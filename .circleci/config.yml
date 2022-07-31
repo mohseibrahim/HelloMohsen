@@ -4,10 +4,6 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "to print workflow id"
-    parameters:
-      toto:
-        type: string
-        default: hamada
     steps:
      - run: echo$CIRCLE_WORKFLOW_ID
 
