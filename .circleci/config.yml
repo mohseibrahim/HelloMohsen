@@ -2,8 +2,8 @@
 version: 2.1
 # Use a package of configuration called an orb.
 commands:
-  print_pipeline_id:
-    description: "to print workflow id"
+  demo1_command:
+    description: "demo1_command"
     parameters:
       toto:
           type: string
@@ -81,7 +81,7 @@ jobs:
    - image: circleci/node:13.8.0
   steps:
     - checkout 
-    - print_pipeline_id:
+    - demo1_command:
         toto: "hamada"
               
 # Orchestrate or schedule a set of jobs
