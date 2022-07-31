@@ -114,4 +114,4 @@ workflows:
          requires:
           - save_hello_world_output
       - demo_command
-      - print_pipeline_number
+      - demo_command_print_pipeline_number
