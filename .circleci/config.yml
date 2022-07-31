@@ -76,7 +76,7 @@ jobs:
      command :
        cat output.txt
 
-  use_command_demo:
+  demo_command:
    docker:
     image: circleci/node:13.8.0
    steps:
@@ -98,4 +98,4 @@ workflows:
       - print_output_file :
          requires:
           - save_hello_world_output
-      - use_command_demo
+      - demo_command
