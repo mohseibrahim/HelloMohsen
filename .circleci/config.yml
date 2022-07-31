@@ -88,7 +88,7 @@ jobs:
   steps:
     - checkout 
     - demo1_command:
-        toto: "hamada"
+        toto: <<pipeline.id>>
 
  demo_command_print_pipeline_number :
   docker:
