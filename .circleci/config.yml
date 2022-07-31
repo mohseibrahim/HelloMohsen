@@ -137,3 +137,4 @@ workflows:
       - demo_command
       - demo_command_print_pipeline_number
       - demo_anchor
+      - demo_on_fail
