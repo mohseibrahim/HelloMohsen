@@ -108,6 +108,16 @@ jobs:
   steps :
    - checkout
    - run : echo "hai i'm using anchor"
+
+ demo_on_fail :
+  <<: *defaults
+  steps :
+   - checkout
+   - run :
+      return 1
+   - run :
+      command : echo " hello error"
+      when : on_fail
               
 # Orchestrate or schedule a set of jobs
 workflows:
