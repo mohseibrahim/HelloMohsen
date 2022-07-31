@@ -12,6 +12,13 @@ commands:
       - run: echo << parameters.toto >>
 
 
+  print_pipeline_number:
+    description: "print pipeline number"
+    steps:
+      - run: echo$CIRCLE_WORFLOW_ID
+
+
+
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
@@ -83,6 +90,13 @@ jobs:
     - checkout 
     - demo1_command:
         toto: "hamada"
+
+ demo_command_print_pipeline_number :
+  docker:
+   - image: circleci/node:13.8.0
+  steps :
+   - checkout 
+   - print_pipeline_number
               
 # Orchestrate or schedule a set of jobs
 workflows:
@@ -100,3 +114,4 @@ workflows:
          requires:
           - save_hello_world_output
       - demo_command
+      - print_pipeline_number
