@@ -1,6 +1,12 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 # Use a package of configuration called an orb.
+
+
+defaults: &defaults
+  docker:
+   - image: circleci/node:13.8.0
+
 commands:
   demo1_command:
     description: "demo1_command"
@@ -96,6 +102,12 @@ jobs:
   steps :
    - checkout 
    - print_pipeline_number
+ 
+ demo_anchor :
+  <<: *defaults
+  steps :
+   - checkout
+   - run : echo "hai i'm using anchor"
               
 # Orchestrate or schedule a set of jobs
 workflows:
@@ -114,3 +126,4 @@ workflows:
           - save_hello_world_output
       - demo_command
       - demo_command_print_pipeline_number
+      - demo_anchor
