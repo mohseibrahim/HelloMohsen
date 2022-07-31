@@ -4,8 +4,12 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "to print workflow id"
+    parameters:
+      toto:
+          type: string
+          default: "hamada"
     steps:
-      - run: echo "hello mohsen from command"
+      - run: echo << parameters.toto >>
 
 
 orbs:
@@ -78,6 +82,7 @@ jobs:
   steps:
     - checkout 
     - print_pipeline_id:
+        toto: "hamada"
               
 # Orchestrate or schedule a set of jobs
 workflows:
