@@ -2,11 +2,12 @@
 version: 2.1
 # Use a package of configuration called an orb.
 
-
+# use anchor for lines substitution for Doker image
 defaults: &defaults
   docker:
    - image: circleci/node:13.8.0
 
+# use commands for step substitution
 commands:
   demo1_command:
     description: "demo1_command"
@@ -17,7 +18,7 @@ commands:
     steps:
       - run: echo << parameters.toto >>
 
-
+# use enviromental variable for work flow id
   print_pipeline_number:
     description: "print pipeline number"
     steps:
@@ -49,7 +50,7 @@ jobs:
      command :
        echo "world"   
 
-
+# using envirnomental var
  echo_env_var:
   docker:
    - image : circleci/node:13.8.0
@@ -60,6 +61,7 @@ jobs:
      command :
        echo $Mohsen_ENV_VAR
 
+# using workspace to save results from one job to another
  save_hello_world_output:
   docker:
    - image : circleci/node:13.8.0
@@ -88,6 +90,7 @@ jobs:
      command :
        cat output.txt
 
+# use pipeline.id 
  demo_command:
   docker:
    - image: circleci/node:13.8.0
@@ -109,6 +112,7 @@ jobs:
    - checkout
    - run : echo "hai i'm using anchor"
 
+# using on fail conditional job
  demo_on_fail :
   <<: *defaults
   steps :
@@ -137,4 +141,3 @@ workflows:
       - demo_command
       - demo_command_print_pipeline_number
       - demo_anchor
-      - demo_on_fail
